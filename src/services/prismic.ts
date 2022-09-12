@@ -1,13 +1,12 @@
-import * as Prismic from '@prismicio/client';
+import * as prismic from '@prismicio/client';
 
-export function getPrismicClient(req?: unknown){
-  const prismic = Prismic.createClient(  
-    process.env.PRISMIC_ENDPOINT,
-    {
-      req,
-      accessToken: process.env.PRISMIC_ACCESS_TOKEN
-    }
-  )
+export function getPrismicClient(req?: unknown) {
+    const prismicClient = prismic.createClient(process.env.PRISMIC_ENDPOINT);
 
-  return prismic;
+    prismicClient.accessToken = process.env.PRISMIC_ACCESS_TOKEN;
+
+    req && prismicClient.enableAutoPreviewsFromReq(req);
+
+
+    return prismicClient;
 }
