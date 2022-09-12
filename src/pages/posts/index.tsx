@@ -2,15 +2,14 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { getPrismicClient } from '../../services/prismic'
 import styles from './styles.module.scss'
-import Prismic from '@prismicio/client'
 import { RichText } from 'prismic-dom'
 import Link from 'next/link'
 
 type Post = {
-  slug: String;
-  title: String;
-  excerpt: String;
-  updatedAt: String;
+  slug: string;
+  title: string;
+  excerpt: string;
+  updatedAt: string;
 }
 
 interface PostsProps {
